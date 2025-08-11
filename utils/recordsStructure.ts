@@ -25,6 +25,8 @@ export interface propertyAgentRecordMemo {
     id:number,
     agent_id: number,
     notes: string,
+    created_at: Date,
+    updated_at: Date,
 }
 
 // belongs to propertyAgent
@@ -33,4 +35,6 @@ export interface propertyAgentRecordReminder {
     agent_id: number,
     memo_id: number,
     date: Date
+    created_at: Date,
+    updated_at: Date,
 }
