@@ -1,5 +1,5 @@
 
-interface property {
+export interface property {
     id:number,
     name: string,
     address: string,
@@ -7,7 +7,7 @@ interface property {
 }
 
 // has many ^
-interface propertyAgent {
+export interface propertyAgent {
     id: number,
     firstName: string,
     lastName: string,
@@ -21,14 +21,14 @@ interface propertyAgent {
 }
 
 // belongs to ^
-interface propertyAgentRecordMemo {
+export interface propertyAgentRecordMemo {
     id:number,
     agent_id: number,
     notes: string,
 }
 
 // belongs to propertyAgent
-interface propertyAgentRecordReminder {
+export interface propertyAgentRecordReminder {
     id:number,
     agent_id: number,
     memo_id: number,
