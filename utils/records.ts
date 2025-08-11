@@ -117,7 +117,7 @@ export class RecordInstance {
     public fetchRemindersByMemoId(memoId: number): propertyAgentRecordReminder[] {
         return this.propertyAgentRecordReminders.filter(reminder => reminder.memo_id === memoId);
     }
-    
+
     public fetchRemindersByAgentId(agentId: number): propertyAgentRecordReminder[] {
         return this.propertyAgentRecordReminders.filter(reminder => reminder.agent_id === agentId);
     }
@@ -129,6 +129,8 @@ export class RecordInstance {
         if (data.id == null) {
             if (collection.length > 0) {
                 data.id = collection[collection.length - 1].id + 1;
+                data.created_at = new Date();
+                data.updated_at = new Date();
             } else {
                 data.id = 0;
             }
@@ -140,6 +142,7 @@ export class RecordInstance {
         const index = collection.findIndex(item => item.id === data.id);
         if (index !== -1) {
             collection[index] = data;
+            data.updated_at = new Date();
             return collection;
         }
         return false;
